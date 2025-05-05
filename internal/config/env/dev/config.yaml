@@ -1,0 +1,9 @@
+app:
+    name: "go-api-server"
+    version: "1.0.0"
+    description: "A simple REST and gRPC API server written in Go"
+    author: "Lokesh Chandra"
+    url: "https://github.com/lokesh-go"
+logger:
+    debug: true
+    callerSkipNo: 3
