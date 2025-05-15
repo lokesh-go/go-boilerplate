@@ -7,7 +7,6 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/lokesh-go/go-boilerplate/internal/config"
 	"github.com/lokesh-go/go-boilerplate/pkg/utils"
 )
 
@@ -20,19 +19,18 @@ type Logger interface {
 }
 
 type logger struct {
-	config config.Methods
+	config *Config
 	logger *slog.Logger
 }
 
 // New creates a new logger
-// TODO :: Need decoupling here
-func New(env string, config config.Methods) Logger {
+func New(config *Config) Logger {
 	// Initialise slog
 	logHandler := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 		AddSource: true,
 		Level:     slog.LevelInfo,
 	})
-	sLogger := slog.New(logHandler).With(utils.HostNameJSONKey, utils.GetHostname(), utils.EnvJSONKey, env, utils.AppJSONKey, config.Get().App.Name, utils.AppVersionJSONKey, config.Get().App.Version)
+	sLogger := slog.New(logHandler).With(utils.HostNameJSONKey, utils.GetHostname(), utils.EnvJSONKey, config.Env, utils.AppJSONKey, config.AppName, utils.AppVersionJSONKey, config.AppVersion)
 
 	// Returns
 	return &logger{config: config, logger: sLogger}
@@ -40,7 +38,7 @@ func New(env string, config config.Methods) Logger {
 
 // Debug
 func (l *logger) Debug(msg string, fields ...any) {
-	if !l.config.Get().Logger.Debug {
+	if !l.config.DebugEnabled {
 		return
 	}
 	l.logger.Debug(msg, fields...)
@@ -65,7 +63,9 @@ func (l *logger) Error(msg string, err error, fields ...any) {
 	}
 
 	// Add additional fields
-	callerSkipNo := l.config.Get().Logger.CallerSkipNo
+	if l.config.CallerSkipNo != 0 {
+		callerSkipNo = l.config.CallerSkipNo
+	}
 	additionalFields := map[string]interface{}{
 		utils.ErrorJSONKey: errString,
 		utils.StackJSONKey: formatStackTrace(callerSkipNo, runtime.Callers(callerSkipNo, make([]uintptr, 32))),

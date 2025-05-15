@@ -3,23 +3,28 @@ package appcache
 import (
 	"time"
 
-	appCache "github.com/patrickmn/go-cache"
-
-	"github.com/lokesh-go/go-boilerplate/internal/config"
+	goCache "github.com/patrickmn/go-cache"
 )
 
 // AppCache ...
 type AppCache struct {
-	Cache *appCache.Cache
+	Cache *goCache.Cache
 }
 
 // New ...
-// TODO :: Need decoupling here
-func New(config config.Methods) (c *AppCache) {
+func New(config *Config) *AppCache {
+	// Override config
+	if config != nil && config.DefaultExpirationInSeconds != 0 {
+		defaultExpirationInSeconds = config.DefaultExpirationInSeconds
+	}
+	if config != nil && config.CleanupIntervalInMinutes != 0 {
+		cleanupIntervalInMinutes = config.CleanupIntervalInMinutes
+	}
+
 	// Initialise
-	defaultExpiration := time.Duration(config.Get().DAL.Cache.AppCache.DefaultExpirationInSeconds) * time.Second
-	cleanupInterval := time.Duration(config.Get().DAL.Cache.AppCache.CleanupIntervalInMinutes) * time.Minute
-	cache := appCache.New(defaultExpiration, cleanupInterval)
+	defaultExpiration := time.Duration(defaultExpirationInSeconds) * time.Second
+	cleanupInterval := time.Duration(cleanupIntervalInMinutes) * time.Minute
+	cache := goCache.New(defaultExpiration, cleanupInterval)
 
 	// Returns
 	return &AppCache{
