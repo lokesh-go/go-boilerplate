@@ -144,6 +144,12 @@ ENV=test go run cmd/go-api-microservice/main.go
 # Production mode
 ENV=prod go run cmd/go-api-microservice/main.go
 ```
+2. Ping your application:
+
+```bash
+# Health check for your application
+http://localhost/ping
+```
 
 ### Building for Production
 
