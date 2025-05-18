@@ -1,9 +1,9 @@
 package server
 
 import (
-	"github.com/lokesh-go/go-api-service/internal/dependencies"
-	grpcServer "github.com/lokesh-go/go-api-service/internal/server/grpc"
-	httpServer "github.com/lokesh-go/go-api-service/internal/server/http"
+	"github.com/lokesh-go/go-api-microservice/internal/dependencies"
+	grpcServer "github.com/lokesh-go/go-api-microservice/internal/server/grpc"
+	httpServer "github.com/lokesh-go/go-api-microservice/internal/server/http"
 )
 
 // Start

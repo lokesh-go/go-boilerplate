@@ -1,9 +1,9 @@
 package cache
 
 import (
-	"github.com/lokesh-go/go-api-service/internal/config"
-	appCacheDAL "github.com/lokesh-go/go-api-service/internal/dal/cache/appcache"
-	redisCacheDAL "github.com/lokesh-go/go-api-service/internal/dal/cache/rediscache"
+	"github.com/lokesh-go/go-api-microservice/internal/config"
+	appCacheDAL "github.com/lokesh-go/go-api-microservice/internal/dal/cache/appcache"
+	redisCacheDAL "github.com/lokesh-go/go-api-microservice/internal/dal/cache/rediscache"
 )
 
 type cacheType string

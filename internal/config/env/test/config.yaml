@@ -1,6 +1,16 @@
 app:
-    name: "go-api-server"
+    name: "go-api-microservice"
     version: "1.0.0"
     description: "A simple REST and gRPC API server written in Go"
     author: "Lokesh Chandra"
-    url: "https://github.com/lokesh-go/go-api-server"
+    url: "https://github.com/lokesh-go"
+server:
+    http:
+        publicAddr: ":80"
+        internalAddr: ":8080"
+        readTimeoutInSeconds: 5
+        writeTimeoutInSeconds: 10
+        shutdownTimeoutInSeconds: 5
+logger:
+    debug: true
+    callerSkipNo: 3

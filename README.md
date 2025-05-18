@@ -1,6 +1,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/1092882/60883564-20142380-a268-11e9-988a-d98fb639adc6.png" alt="webgo gopher" width="256px"/></p>
 
-# go-api-service
+# go-api-microservice
 
 A Go microservice boilerplate that supports both REST and gRPC APIs. No need to worry about project structure—just clone the repo and start writing your business logic.
 
@@ -41,7 +41,7 @@ A Go microservice boilerplate that supports both REST and gRPC APIs. No need to 
 │       └── router/     # URL routing definitions
 │
 ├── cmd/                 # Application entry points
-│   ├── go-api-service/  # Main API server executable
+│   ├── go-api-microservice/  # Main API server executable
 │   │   └── main.go      # Server initialization
 │   │
 │   └── cli/          # Command-line tools
@@ -107,8 +107,8 @@ A Go microservice boilerplate that supports both REST and gRPC APIs. No need to 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/lokesh-go/go-api-service.git
-cd go-api-service
+git clone https://github.com/lokesh-go/go-api-microservice.git
+cd go-api-microservice
 ```
 
 2. Install dependencies:
@@ -136,13 +136,13 @@ export ENV=prod
 
 ```bash
 # Development mode
-go run cmd/go-api-service/main.go
+go run cmd/go-api-microservice/main.go
 
 # Test mode
-ENV=test go run cmd/go-api-service/main.go
+ENV=test go run cmd/go-api-microservice/main.go
 
 # Production mode
-ENV=prod go run cmd/go-api-service/main.go
+ENV=prod go run cmd/go-api-microservice/main.go
 ```
 
 ### Building for Production
@@ -152,7 +152,7 @@ ENV=prod go run cmd/go-api-service/main.go
 ./scripts/build.sh
 
 # Or using Docker
-docker build -t go-api-service -f docker/Dockerfile .
+docker build -t go-api-microservice -f docker/Dockerfile .
 ```
 
 ## License

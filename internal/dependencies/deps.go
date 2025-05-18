@@ -1,9 +1,9 @@
 package dependencies
 
 import (
-	"github.com/lokesh-go/go-api-service/internal/config"
-	"github.com/lokesh-go/go-api-service/internal/dal"
-	"github.com/lokesh-go/go-api-service/pkg/logger"
+	"github.com/lokesh-go/go-api-microservice/internal/config"
+	"github.com/lokesh-go/go-api-microservice/internal/dal"
+	"github.com/lokesh-go/go-api-microservice/pkg/logger"
 )
 
 // Dependencies hold all application deps

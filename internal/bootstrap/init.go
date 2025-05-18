@@ -1,11 +1,11 @@
 package bootstrap
 
 import (
-	"github.com/lokesh-go/go-api-service/internal/config"
-	"github.com/lokesh-go/go-api-service/internal/dal"
-	"github.com/lokesh-go/go-api-service/internal/dependencies"
-	"github.com/lokesh-go/go-api-service/internal/server"
-	"github.com/lokesh-go/go-api-service/pkg/logger"
+	"github.com/lokesh-go/go-api-microservice/internal/config"
+	"github.com/lokesh-go/go-api-microservice/internal/dal"
+	"github.com/lokesh-go/go-api-microservice/internal/dependencies"
+	"github.com/lokesh-go/go-api-microservice/internal/server"
+	"github.com/lokesh-go/go-api-microservice/pkg/logger"
 )
 
 // Initialize application dependencies

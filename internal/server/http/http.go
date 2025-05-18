@@ -10,9 +10,9 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/lokesh-go/go-api-service/api/rest/router"
-	"github.com/lokesh-go/go-api-service/internal/dependencies"
-	"github.com/lokesh-go/go-api-service/pkg/utils"
+	"github.com/lokesh-go/go-api-microservice/api/rest/router"
+	"github.com/lokesh-go/go-api-microservice/internal/dependencies"
+	"github.com/lokesh-go/go-api-microservice/pkg/utils"
 )
 
 type httpServer struct {

@@ -1,4 +1,4 @@
-module github.com/lokesh-go/go-api-service
+module github.com/lokesh-go/go-api-microservice
 
 go 1.23.0
 

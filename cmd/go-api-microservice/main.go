@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/lokesh-go/go-api-service/internal/bootstrap"
+	"github.com/lokesh-go/go-api-microservice/internal/bootstrap"
 )
 
 // API Server start point

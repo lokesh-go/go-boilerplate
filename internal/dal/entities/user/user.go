@@ -1,8 +1,8 @@
 package user
 
 import (
-	"github.com/lokesh-go/go-api-service/internal/dal/cache"
-	"github.com/lokesh-go/go-api-service/internal/dal/db"
+	"github.com/lokesh-go/go-api-microservice/internal/dal/cache"
+	"github.com/lokesh-go/go-api-microservice/internal/dal/db"
 )
 
 // User data access layer

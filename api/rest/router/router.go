@@ -2,9 +2,9 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lokesh-go/go-api-service/api/rest/handler"
-	"github.com/lokesh-go/go-api-service/api/rest/middleware"
-	"github.com/lokesh-go/go-api-service/internal/dependencies"
+	"github.com/lokesh-go/go-api-microservice/api/rest/handler"
+	"github.com/lokesh-go/go-api-microservice/api/rest/middleware"
+	"github.com/lokesh-go/go-api-microservice/internal/dependencies"
 )
 
 // Router interface
