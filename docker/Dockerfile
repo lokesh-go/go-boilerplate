@@ -2,7 +2,7 @@
 FROM golang:1.23 as builder
 
 # Set environment variables to build a static binary
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
+ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm64
 
 # Set the working directory inside the container
 WORKDIR /app
