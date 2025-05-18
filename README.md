@@ -94,6 +94,13 @@ A Go microservice boilerplate that supports both REST and gRPC APIs. No need to 
 │   └── run.sh        # Runtime scripts
 │
 ├── test/             # Test suites and test data
+|
+|-- go.mod
+|
+|-- go.sum
+|
+|__ Makefile
+
 ```
 
 ## Getting Started
@@ -132,33 +139,27 @@ export ENV=test
 export ENV=prod
 ```
 
-1. Run the application:
+4. Run the application:
 
 ```bash
-# Development mode
-go run cmd/go-api-microservice/main.go
-
-# Test mode
-ENV=test go run cmd/go-api-microservice/main.go
-
-# Production mode
-ENV=prod go run cmd/go-api-microservice/main.go
+make run
 ```
-2. Ping your application:
+
+5. Run the application using Docker:
+
+```bash
+# Build docker image
+make build-docker
+
+# Run docker image
+make run-docker
+```
+
+6. Ping your application:
 
 ```bash
 # Health check for your application
 http://localhost/ping
-```
-
-### Building for Production
-
-```bash
-# Build binary
-./scripts/build.sh
-
-# Or using Docker
-docker build -t go-api-microservice -f docker/Dockerfile .
 ```
 
 ## License
