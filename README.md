@@ -1,133 +1,180 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/1092882/60883564-20142380-a268-11e9-988a-d98fb639adc6.png" alt="webgo gopher" width="256px"/></p>
 
-# go-boilerplate
+# go-api-service
 
-Golang microservice boilerplate supporting both REST and gRPC APIs.
+A Go microservice boilerplate that supports both REST and gRPC APIs. No need to worry about project structure—just clone the repo and start writing your business logic.
 
-## Directory Structure
+## Core Packages
+
+### HTTP Framework
+
+- **[github.com/gin-gonic/gin](https://github.com/gin-gonic/gin) v1.10.0**
+  - High-performance HTTP web framework
+  - Provides middleware support and routing
+  - Built-in input validation and error handling
+
+### Application Cache
+
+- **[github.com/patrickmn/go-cache](https://github.com/patrickmn/go-cache) v2.1.0**
+  - In-memory key-value store
+  - Supports TTL and automatic cleanup
+  - Thread-safe operations
+
+### Configuration Management
+
+- **[gopkg.in/yaml.v3](https://pkg.go.dev/gopkg.in/yaml.v3) v3.0.1**
+  - YAML configuration parser
+  - Supports environment variable interpolation
+  - Type-safe configuration loading
+
+## Project Structure
 
 ```bash
 .
-├── api/                # API definitions and documentation
-│   ├── proto/         # gRPC Protocol buffer definitions
-│   │   └── v1/       # API versioning
-│   │       ├── user/
-│   │       └── auth/
+├── api/               # API layer: REST and gRPC endpoints
+│   ├── grpc/          # gRPC service implementations
+│   │   └── grpc.go    # gRPC service entry point
 │   │
-│   ├── rest/         # REST API definitions
-│   │   ├── routes/   # Route definitions
-│   │   │   ├── v1/  # Version-specific routes
-│   │   │   └── routes.go
-│   │   │
-│   │   └── swagger/ # Swagger/OpenAPI documentation
-│   │       └── v1/
+│   └── rest/           # REST API components
+│       ├── handler/    # HTTP request handlers
+│       ├── middleware/ # Request processing middleware
+│       └── router/     # URL routing definitions
+│
+├── cmd/                 # Application entry points
+│   ├── go-api-service/  # Main API server executable
+│   │   └── main.go      # Server initialization
 │   │
-│   └── docs/         # API documentation
+│   └── cli/          # Command-line tools
+│       └── main.go   # CLI entry point
 │
-├── build/            # Build artifacts and packaging
-│
-├── cmd/              # Main applications
-│   ├── api-server/  # Combined REST + gRPC server
-│   │   └── main.go
-│   │
-│   ├── worker/      # Background job processor
-│   │   └── main.go
-│   │
-│   └── cli/         # Command-line tools
-│       └── main.go
-│
-├── docker/          # Containerization
-│
-├── docs/            # Design and user documents
+├── docker/           # Container configuration
+│   └── Dockerfile    # Multi-stage build definition
 │
 ├── internal/        # Private application code
-│   ├── config/     # Configuration management
+│   ├── bootstrap/   # App initialization & setup
+│   │   ├── env.go   # Environment configuration
+│   │   └── init.go  # Bootstrap sequence
 │   │
-│   ├── dal/        # Data Access Layer
-│   │   ├── postgres/
-│   │   └── redis/
+│   ├── config/       # Configuration management
+│   │   ├── config.go # Config loading logic
+│   │   └── models.go # Config structure definitions
 │   │
-│   ├── models/     # Shared domain models
-│   │   ├── user.go
-│   │   └── auth.go
-│   │
-│   ├── server/     # Server implementations
-│   │   ├── grpc/   # gRPC server
-│   │   │   ├── handlers/
-│   │   │   └── middleware/
+│   ├── dal/                # Data Access Layer
+│   │   ├── cache/          # Caching implementations
+│   │   │   ├── appcache/   # Local memory cache
+│   │   │   └── rediscache/ # Redis cache client
 │   │   │
-│   │   ├── http/   # REST server
-│   │   │   ├── handlers/
-│   │   │   ├── middleware/
-│   │   │   └── server.go
+│   │   ├── db/             # Database implementations
+│   │   │   ├── mongo/      # MongoDB client & operations
+│   │   │   └── mysql/      # MySQL client & operations
 │   │   │
-│   │   └── server.go
+│   │   └── entities/       # Domain model definitions
+│   │       ├── address/    # Address related models
+│   │       └── user/       # User related models
 │   │
-│   └── service/    # Business logic layer
-│       ├── user/
-│       └── auth/
+│   ├── dependencies/       # Dependency injection container
+│   │
+│   ├── models/      # Shared domain models
+│   │
+│   │── modules/     # Business logic for all entities
+│   │
+│   └── server/       # Server implementations
+│       ├── grpc/     # gRPC server setup
+│       ├── http/     # HTTP server setup
+│       └── server.go # Server interface definitions
 │
-├── scripts/        # Build and utility scripts
+├── pkg/              # Shared libraries and utilities
+│   ├── cache/        # Generic caching interfaces
+│   ├── db/           # Database utilities and interfaces
+│   ├── logger/       # Logging utilities and abstractions
+│   └── utils/        # Common helper and utility functions
+
+├── scripts/          # Build and deployment scripts
+│   ├── build.sh      # Build automation
+│   └── run.sh        # Runtime scripts
 │
-├── test/           # Additional test data and test suites
-│
-├── go.mod          # Module dependencies
-│
-└── README.md       # Project documentation
+├── test/             # Test suites and test data
 ```
 
-## Directory Significance
+## Getting Started
 
-### `api/`
-- Contains API definitions and documentation
-- Separates API contract from implementation
-- Includes both REST and gRPC API definitions
-- Versioned API specifications
+### Prerequisites
 
-### `cmd/`
-- Contains main applications
-- Each subdirectory is a main package
-- Directory name matches executable name
-- Minimal code, mainly calling packages from `internal/`
-- Examples:
-  - `api-server`: Combined REST + gRPC server
-  - `worker`: Background job processor
-  - `migrator`: Database migration tool
-  - `cli`: Command-line tools
+- Go 1.23 or higher
 
-### `internal/`
-- Private application code
-- Cannot be imported by other projects
-- Contains core business logic
-- Organized by domain and responsibility
+### Project Setup
 
-### Supporting Directories
-- `build/`: Build artifacts and packaging
-- `docker/`: Containerization
-- `docs/`: Design and user documents
-- `scripts/`: Build and utility scripts
-- `test/`: Additional test data and test suites
+1. Clone the repository:
 
-## Installation
-
-Install individual applications:
 ```bash
-go install github.com/lokesh-go/go-boilerplate/cmd/api-server@latest
-go install github.com/lokesh-go/go-boilerplate/cmd/worker@latest
+git clone https://github.com/lokesh-go/go-api-service.git
+cd go-api-service
 ```
 
-## Development
+2. Install dependencies:
 
-1. Clone the repository
-2. Install dependencies
-3. Run the development server:
 ```bash
+go mod download
+```
+
+3. Set up environment variables:
+
+```bash
+Project supports three enviroments.
+
+# dev ( Default )
+export ENV=dev
+
+# test
+export ENV=test
+
+# prod
+export ENV=prod
+```
+
+1. Run the application:
+
+```bash
+# Development mode
 go run cmd/api-server/main.go
+
+# Test mode
+ENV=test go run cmd/api-server/main.go
+
+# Production mode
+ENV=prod go run cmd/api-server/main.go
 ```
 
-## Testing
+### Building for Production
 
-Run tests:
 ```bash
-go test ./...
+# Build binary
+./scripts/build.sh
+
+# Or using Docker
+docker build -t go-api-service -f docker/Dockerfile .
 ```
+
+## License
+
+MIT License
+
+Copyright (c) 2025 Lokesh Chandra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

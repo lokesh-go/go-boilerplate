@@ -4,6 +4,13 @@ app:
     description: "A simple REST and gRPC API server written in Go"
     author: "Lokesh Chandra"
     url: "https://github.com/lokesh-go"
+server:
+    http:
+        publicAddr: ":80"
+        internalAddr: ":8080"
+        readTimeoutInSeconds: 5
+        writeTimeoutInSeconds: 10
+        shutdownTimeoutInSeconds: 5
 logger:
     debug: true
     callerSkipNo: 3

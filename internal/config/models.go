@@ -2,6 +2,7 @@ package config
 
 type config struct {
 	App    appConfig    `yaml:"app"`
+	Server serverConfig `yaml:"server`
 	Logger loggerConfig `yaml:"logger"`
 	DAL    dalConfig    `yaml:"dal"`
 }
@@ -13,6 +14,21 @@ type appConfig struct {
 	Author      string `yaml:"author"`
 	URL         string `yaml:"url"`
 }
+
+type serverConfig struct {
+	HTTP httpServerConfig `yaml:"http"`
+	GRPC grpcServerConfig `yaml:"grpc"`
+}
+
+type httpServerConfig struct {
+	PublicAddr               string `yaml:"publicAddr"`
+	InternalAddr             string `yaml:"internalAddr"`
+	ReadTimeoutInSeconds     int64  `yaml:"readTimeoutInSeconds"`
+	WriteTimeoutInSeconds    int64  `yaml:"WriteTimeoutInSeconds"`
+	ShutdownTimeoutInSeconds int64  `yaml:"shutdownTimeoutInSeconds"`
+}
+
+type grpcServerConfig struct{}
 
 type loggerConfig struct {
 	Debug        bool `yaml:"debug"`

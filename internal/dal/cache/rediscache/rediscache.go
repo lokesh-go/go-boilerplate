@@ -6,12 +6,12 @@ import (
 )
 
 // RedisCache conn
-type RedisCache struct {
+type redisCache struct {
 	conn *redisPkg.RedisCache
 }
 
 // New redis cache
-func New(config config.Methods) (*RedisCache, error) {
+func New(config config.Methods) (*redisCache, error) {
 	// Forms redis config
 	rc := &redisPkg.Config{}
 
@@ -22,7 +22,7 @@ func New(config config.Methods) (*RedisCache, error) {
 	}
 
 	// Returns
-	return &RedisCache{
+	return &redisCache{
 		conn: conn,
 	}, nil
 }

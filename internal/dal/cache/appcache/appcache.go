@@ -6,12 +6,12 @@ import (
 )
 
 // AppCache conn
-type AppCache struct {
+type appCache struct {
 	conn *appCachePkg.AppCache
 }
 
 // New app cache
-func New(config config.Methods) *AppCache {
+func New(config config.Methods) *appCache {
 	// Forms appCache config
 	ac := &appCachePkg.Config{
 		DefaultExpirationInSeconds: config.Get().DAL.Cache.AppCache.DefaultExpirationInSeconds,
@@ -19,7 +19,7 @@ func New(config config.Methods) *AppCache {
 	}
 
 	// Get the appCache connection
-	return &AppCache{
+	return &appCache{
 		conn: appCachePkg.New(ac),
 	}
 }

@@ -14,7 +14,7 @@ type Methods interface {
 // Initialize the config
 func Initialize(env string) (Methods, error) {
 	// Read the config file
-	data, err := utils.ReadFile(fmt.Sprintf("../../internal/config/env/%s/config.yaml", env))
+	data, err := utils.ReadFile(fmt.Sprintf("internal/config/env/%s/config.yaml", env))
 	if err != nil {
 		return nil, err
 	}
