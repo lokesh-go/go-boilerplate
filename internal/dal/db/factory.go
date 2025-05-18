@@ -1,9 +1,9 @@
 package db
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/config"
-	mongoDAL "github.com/lokesh-go/go-boilerplate/internal/dal/db/mongo"
-	mysqlDAL "github.com/lokesh-go/go-boilerplate/internal/dal/db/mysql"
+	"github.com/lokesh-go/go-api-service/internal/config"
+	mongoDAL "github.com/lokesh-go/go-api-service/internal/dal/db/mongo"
+	mysqlDAL "github.com/lokesh-go/go-api-service/internal/dal/db/mysql"
 )
 
 type dbType string

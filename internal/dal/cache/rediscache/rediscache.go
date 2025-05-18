@@ -1,8 +1,8 @@
 package rediscache
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/config"
-	redisPkg "github.com/lokesh-go/go-boilerplate/pkg/cache/redis"
+	"github.com/lokesh-go/go-api-service/internal/config"
+	redisPkg "github.com/lokesh-go/go-api-service/pkg/cache/redis"
 )
 
 // RedisCache conn

@@ -1,4 +1,4 @@
-module github.com/lokesh-go/go-boilerplate
+module github.com/lokesh-go/go-api-service
 
 go 1.23.0
 

@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/lokesh-go/go-boilerplate/pkg/utils"
+	"github.com/lokesh-go/go-api-service/pkg/utils"
 )
 
 type Logger struct {

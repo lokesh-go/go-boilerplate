@@ -1,11 +1,11 @@
 package dal
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/config"
-	"github.com/lokesh-go/go-boilerplate/internal/dal/cache"
-	"github.com/lokesh-go/go-boilerplate/internal/dal/db"
-	addressEntity "github.com/lokesh-go/go-boilerplate/internal/dal/entities/address"
-	userEntity "github.com/lokesh-go/go-boilerplate/internal/dal/entities/user"
+	"github.com/lokesh-go/go-api-service/internal/config"
+	"github.com/lokesh-go/go-api-service/internal/dal/cache"
+	"github.com/lokesh-go/go-api-service/internal/dal/db"
+	addressEntity "github.com/lokesh-go/go-api-service/internal/dal/entities/address"
+	userEntity "github.com/lokesh-go/go-api-service/internal/dal/entities/user"
 )
 
 // Data Access Layer

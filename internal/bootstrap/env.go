@@ -1,6 +1,6 @@
 package bootstrap
 
-import "github.com/lokesh-go/go-boilerplate/pkg/utils"
+import "github.com/lokesh-go/go-api-service/pkg/utils"
 
 func getEnv() (env string) {
 	env = utils.GetEnv(utils.EnvKey)

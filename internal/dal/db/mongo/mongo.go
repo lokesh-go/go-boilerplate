@@ -1,8 +1,8 @@
 package mongo
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/config"
-	mongoPkg "github.com/lokesh-go/go-boilerplate/pkg/db/mongo"
+	"github.com/lokesh-go/go-api-service/internal/config"
+	mongoPkg "github.com/lokesh-go/go-api-service/pkg/db/mongo"
 )
 
 // MongoDB connection

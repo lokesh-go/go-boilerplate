@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"github.com/lokesh-go/go-boilerplate/pkg/utils"
+	"github.com/lokesh-go/go-api-service/pkg/utils"
 )
 
 // Methods for config

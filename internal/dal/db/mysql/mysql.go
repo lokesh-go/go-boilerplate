@@ -1,8 +1,8 @@
 package mysql
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/config"
-	mysqlPkg "github.com/lokesh-go/go-boilerplate/pkg/db/mysql"
+	"github.com/lokesh-go/go-api-service/internal/config"
+	mysqlPkg "github.com/lokesh-go/go-api-service/pkg/db/mysql"
 )
 
 // MySql connection

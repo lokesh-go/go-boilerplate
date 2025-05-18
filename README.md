@@ -136,13 +136,13 @@ export ENV=prod
 
 ```bash
 # Development mode
-go run cmd/api-server/main.go
+go run cmd/go-api-service/main.go
 
 # Test mode
-ENV=test go run cmd/api-server/main.go
+ENV=test go run cmd/go-api-service/main.go
 
 # Production mode
-ENV=prod go run cmd/api-server/main.go
+ENV=prod go run cmd/go-api-service/main.go
 ```
 
 ### Building for Production

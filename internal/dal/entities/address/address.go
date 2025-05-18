@@ -1,8 +1,8 @@
 package address
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/dal/cache"
-	"github.com/lokesh-go/go-boilerplate/internal/dal/db"
+	"github.com/lokesh-go/go-api-service/internal/dal/cache"
+	"github.com/lokesh-go/go-api-service/internal/dal/db"
 )
 
 // Address data access layer

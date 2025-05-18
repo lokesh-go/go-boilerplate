@@ -1,9 +1,9 @@
 package server
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/dependencies"
-	grpcServer "github.com/lokesh-go/go-boilerplate/internal/server/grpc"
-	httpServer "github.com/lokesh-go/go-boilerplate/internal/server/http"
+	"github.com/lokesh-go/go-api-service/internal/dependencies"
+	grpcServer "github.com/lokesh-go/go-api-service/internal/server/grpc"
+	httpServer "github.com/lokesh-go/go-api-service/internal/server/http"
 )
 
 // Start

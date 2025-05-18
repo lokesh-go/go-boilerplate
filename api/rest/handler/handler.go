@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lokesh-go/go-boilerplate/api/rest/middleware"
-	"github.com/lokesh-go/go-boilerplate/internal/dependencies"
+	"github.com/lokesh-go/go-api-service/api/rest/middleware"
+	"github.com/lokesh-go/go-api-service/internal/dependencies"
 )
 
 // Handler

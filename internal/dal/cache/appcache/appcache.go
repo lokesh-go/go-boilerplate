@@ -1,8 +1,8 @@
 package appcache
 
 import (
-	"github.com/lokesh-go/go-boilerplate/internal/config"
-	appCachePkg "github.com/lokesh-go/go-boilerplate/pkg/cache/appcache"
+	"github.com/lokesh-go/go-api-service/internal/config"
+	appCachePkg "github.com/lokesh-go/go-api-service/pkg/cache/appcache"
 )
 
 // AppCache conn
