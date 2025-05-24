@@ -1,5 +1,3 @@
-<p align="center"><img src="https://user-images.githubusercontent.com/1092882/60883564-20142380-a268-11e9-988a-d98fb639adc6.png" alt="webgo gopher" width="256px"/></p>
-
 # go-api-microservice
 
 A Go microservice boilerplate that supports both REST and gRPC APIs. No need to worry about project structure—just clone the repo and start writing your business logic.
