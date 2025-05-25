@@ -57,9 +57,6 @@ release:
 	@git checkout $(DEFAULT_BRANCH)
 	@git pull origin $(DEFAULT_BRANCH)
 
-	@echo "🌿 Creating bump/release branch..."
-	@git checkout -b bump/release
-
 	@echo "🚀 Bumping version using: $(bump)"
 	@./scripts/bump_version.sh $(bump)
 
@@ -68,7 +65,7 @@ release:
 	@git tag $(shell cat VERSION)
 
 	@echo "📤 Pushing release branch and tag..."
-	@git push origin bump/release
+	@git push origin $(DEFAULT_BRANCH)
 	@git push origin $(shell cat VERSION)
 
 	@echo "✅ Release pushed successfully!"
