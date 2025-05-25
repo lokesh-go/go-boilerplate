@@ -111,6 +111,8 @@ func (s *httpServer) Start() (err error) {
 	})
 
 	// Wait for the error group to finish
+	// TODO :: Need to move out form here to the server it's block the main thread
+	// so won't be initialised the grpc server
 	if err := g.Wait(); err != nil {
 		return err
 	}
