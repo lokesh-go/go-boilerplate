@@ -1,0 +1,9 @@
+# Binaries and build outputs
+.build
+
+# Go
+vendor/
+
+# IDEs and editors
+.vscode/
+.idea/
