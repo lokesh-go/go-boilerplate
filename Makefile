@@ -61,12 +61,12 @@ release:
 	@./scripts/bump_version.sh $(bump)
 
 	@git add VERSION
-	@git commit -m "chore: bump version to $(shell cat VERSION)"
-	@git tag $(shell cat VERSION)
+	@git commit -m "chore: bump version to $$(cat VERSION)"
+	@git tag $$(cat VERSION)
 
 	@echo "📤 Pushing release branch and tag..."
 	@git push origin $(DEFAULT_BRANCH)
-	@git push origin $(shell cat VERSION)
+	@git push origin $$(cat VERSION)
 
 	@echo "✅ Release pushed successfully!"
 
